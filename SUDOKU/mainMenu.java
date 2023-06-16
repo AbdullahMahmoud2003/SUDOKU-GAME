@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 
 public class mainMenu extends JFrame implements ActionListener{
 	JButton newGame= new JButton("NEW GAME");
-	JButton settings= new JButton("SETTINGS");
+	JButton settingsButt= new JButton("SETTINGS");
 	JButton exit= new JButton("EXIT");
 	JLabel title=new JLabel("SUDOKU");
 	JLabel coder=new JLabel("BY ABDULLAH MAHMOUD");
@@ -18,7 +18,7 @@ public class mainMenu extends JFrame implements ActionListener{
 		this.setTitle("SUDOKU");
 		this.setLayout(null);
 		this.setSize(600,600);
-		this.setBackground(Color.WHITE);
+		this.getContentPane().setBackground(settings.defaultColor);
 		this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setFocusable(false);
@@ -26,36 +26,36 @@ public class mainMenu extends JFrame implements ActionListener{
         this.setResizable(false);
         
         title.setBounds(156,40,300,64);
-        title.setForeground(Color.BLUE);
+        title.setForeground(settings.defaultAntiColor);
         title.setFont(new Font("",Font.BOLD,64));
         title.setFocusable(false);
         
         newGame.setBounds(194,150,200,50);
-        newGame.setBackground(Color.BLUE);
-        newGame.setForeground(Color.WHITE);
+        newGame.setBackground(settings.defaultAntiColor);
+        newGame.setForeground(settings.defaultColor);
         newGame.setFocusable(false);
         newGame.addActionListener(this);
         
-        settings.setBounds(194,250,200,50);
-        settings.setBackground(Color.BLUE);
-        settings.setForeground(Color.WHITE);
-        settings.setFocusable(false);
-        settings.addActionListener(this);
+        settingsButt.setBounds(194,250,200,50);
+        settingsButt.setBackground(settings.defaultAntiColor);
+        settingsButt.setForeground(settings.defaultColor);
+        settingsButt.setFocusable(false);
+        settingsButt.addActionListener(this);
         
         exit.setBounds(194,350,200,50);
-        exit.setBackground(Color.BLUE);
-        exit.setForeground(Color.WHITE);
+        exit.setBackground(settings.defaultAntiColor);
+        exit.setForeground(settings.defaultColor);
         exit.setFocusable(false);
         exit.addActionListener(this);
         
         coder.setBounds(194,430,300,64);
-        coder.setForeground(Color.BLUE);
+        coder.setForeground(settings.defaultAntiColor);
         coder.setFont(new Font("",Font.BOLD,16));
         coder.setFocusable(false);
         
         this.add(title);
         this.add(newGame);
-        this.add(settings);
+        this.add(settingsButt);
         this.add(exit);
         this.add(coder);
 	}
@@ -73,8 +73,9 @@ public class mainMenu extends JFrame implements ActionListener{
         	new newGame();
             this.dispose();
         }
-        if(e.getSource() == settings)
+        if(e.getSource() == settingsButt)
         {
+        	new settings();
             this.dispose();
         }
 

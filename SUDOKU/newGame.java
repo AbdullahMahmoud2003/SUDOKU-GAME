@@ -20,7 +20,7 @@ public class newGame extends JFrame implements ActionListener{
 		this.setTitle("SUDOKU");
 		this.setLayout(null);
 		this.setSize(600,600);
-		this.setBackground(Color.WHITE);
+		this.getContentPane().setBackground(settings.defaultColor);
 		this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setFocusable(false);
@@ -28,36 +28,36 @@ public class newGame extends JFrame implements ActionListener{
         this.setResizable(false);
         
         title.setBounds(156,40,300,64);
-        title.setForeground(Color.BLUE);
+        title.setForeground(settings.defaultAntiColor);
         title.setFont(new Font("",Font.BOLD,64));
         title.setFocusable(false);
         
         easy.setBounds(194,150,200,50);
-        easy.setBackground(Color.BLUE);
-        easy.setForeground(Color.WHITE);
+        easy.setBackground(settings.defaultAntiColor);
+        easy.setForeground(settings.defaultColor);
         easy.setFocusable(false);
         easy.addActionListener(this);
         
         medium.setBounds(194,230,200,50);
-        medium.setBackground(Color.BLUE);
-        medium.setForeground(Color.WHITE);
+        medium.setBackground(settings.defaultAntiColor);
+        medium.setForeground(settings.defaultColor);
         medium.setFocusable(false);
         medium.addActionListener(this);
         
         hard.setBounds(194,310,200,50);
-        hard.setBackground(Color.BLUE);
-        hard.setForeground(Color.WHITE);
+        hard.setBackground(settings.defaultAntiColor);
+        hard.setForeground(settings.defaultColor);
         hard.setFocusable(false);
         hard.addActionListener(this);
         
         back.setBounds(194,390,200,50);
-        back.setBackground(Color.BLUE);
-        back.setForeground(Color.WHITE);
+        back.setBackground(settings.defaultAntiColor);
+        back.setForeground(settings.defaultColor);
         back.setFocusable(false);
         back.addActionListener(this);
         
         coder.setBounds(194,460,300,64);
-        coder.setForeground(Color.BLUE);
+        coder.setForeground(settings.defaultAntiColor);
         coder.setFont(new Font("",Font.BOLD,16));
         coder.setFocusable(false);
         
