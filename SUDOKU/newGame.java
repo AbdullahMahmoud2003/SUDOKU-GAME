@@ -12,6 +12,7 @@ public class newGame extends JFrame implements ActionListener{
 	JButton easy=new JButton("EASY");
 	JButton medium=new JButton("MEDIUM");
 	JButton hard=new JButton("HARD");
+	static String levelType;
 	JButton back=new JButton("BACK");
 	JLabel title=new JLabel("SUDOKU");
 	JLabel coder=new JLabel("BY ABDULLAH MAHMOUD");
@@ -72,15 +73,21 @@ public class newGame extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
         if (e.getSource() == easy)
         {
+        	levelType="Easy Levels";
+        	new levels();
             this.dispose();
         }
 
         if(e.getSource() == medium)
         {
+        	levelType="Med. Levels";
+        	new levels();
             this.dispose();
         }
         if(e.getSource() == hard)
         {
+        	levelType="Hard Levels";
+        	new levels();
             this.dispose();
         }
         if(e.getSource()==back)

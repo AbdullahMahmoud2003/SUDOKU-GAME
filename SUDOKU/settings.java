@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 public class settings extends JFrame implements ActionListener{
 	static Color defaultColor= Color.WHITE;
 	static Color defaultAntiColor=Color.BLUE;
+	static boolean colorChanged=false;
 	
 	JButton darkTheme=new JButton("DARK THEME");
 	JButton chances=new JButton("CHANCES");
@@ -72,8 +73,18 @@ public class settings extends JFrame implements ActionListener{
         }
         if(e.getSource()==darkTheme)
         {
-        	defaultColor=Color.BLACK;
-        	defaultAntiColor=Color.GREEN;
+        	if(colorChanged)
+        	{
+        		defaultColor=Color.WHITE;
+        		defaultAntiColor=Color.BLUE;
+        		colorChanged=false;
+        	}else {
+            	defaultColor=Color.BLACK;
+            	defaultAntiColor=Color.GREEN;
+            	colorChanged=true;
+        	}
+        	new settings();
+        	this.dispose();
         }
 
     }
