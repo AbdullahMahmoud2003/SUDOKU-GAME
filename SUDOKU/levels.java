@@ -35,6 +35,7 @@ public class levels extends JFrame implements ActionListener{
         for(int i=0;i<9;i++)
         {
             this.add(levels[i]=new JButton());
+            levels[i].addActionListener(this);
             int f=0;
             if(i/3==1)
             	f=70;
@@ -72,6 +73,14 @@ public class levels extends JFrame implements ActionListener{
 			{
 				new newGame();
 				this.dispose();
+			}
+			for(int i=0;i<9;i++)
+			{
+				if(e.getSource()==levels[i])
+				{
+					new board();
+					this.dispose();
+				}
 			}
 			
         }
