@@ -22,8 +22,10 @@ public class board extends JFrame implements ActionListener{
 	
 	board()
 	{
-		chances=3;
-		remValue.setText(String.valueOf(chances));
+		chances=settings.getChances;
+		if(chances==-1)
+			remValue.setText("Infinite number");
+		else remValue.setText(String.valueOf(chances));
 		this.setTitle("SUDOKU");
 		this.setLayout(null);
 		this.setSize(1580,800);
@@ -50,9 +52,6 @@ public class board extends JFrame implements ActionListener{
         remValue.setForeground(settings.defaultColor);
         remValue.setFont(new Font("",Font.BOLD,16));
         
-        chancesPanel.setBounds(1020,438,210,55);
-        chancesPanel.setBackground(settings.defaultAntiColor);
-        chancesPanel.setFocusable(false);
         chancesPanel.add(remChances);
         chancesPanel.add(remValue);
         

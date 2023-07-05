@@ -6,19 +6,27 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 public class settings extends JFrame implements ActionListener{
 	static Color defaultColor= Color.WHITE;
 	static Color defaultAntiColor=Color.BLUE;
 	static boolean colorChanged=false;
+	static int getChances=3;
 	
 	JButton darkTheme=new JButton("DARK THEME");
-	JButton chances=new JButton("CHANCES");
+	JButton chances=new JButton("VALUE OF CHANCES");
 	JLabel title=new JLabel("SETTINGS");
 	JLabel coder=new JLabel("BY ABDULLAH MAHMOUD");
 	JButton back=new JButton("BACK");
+	JPanel chancesPanel=new JPanel();
+	static JLabel remValue=new JLabel();
 	
 	settings(){
+		if(getChances==-1)
+			remValue.setText("Infinite number");
+		else remValue.setText(String.valueOf(getChances));
+		
 		this.setTitle("SUDOKU");
 		this.setLayout(null);
 		this.setSize(600,600);
@@ -34,19 +42,27 @@ public class settings extends JFrame implements ActionListener{
         title.setFont(new Font("",Font.BOLD,64));
         title.setFocusable(false);
         
-        darkTheme.setBounds(194,150,200,50);
+        darkTheme.setBounds(194,150,200,70);
         darkTheme.setBackground(settings.defaultAntiColor);
         darkTheme.setForeground(settings.defaultColor);
         darkTheme.setFocusable(false);
         darkTheme.addActionListener(this);
         
-        chances.setBounds(194,250,200,50);
         chances.setBackground(settings.defaultAntiColor);
         chances.setForeground(settings.defaultColor);
+        chances.setFont(new Font("",Font.BOLD,16));
         chances.setFocusable(false);
         chances.addActionListener(this);
+        remValue.setForeground(settings.defaultColor);
+        remValue.setFont(new Font("",Font.BOLD,16));
         
-        back.setBounds(194,350,200,50);
+        chancesPanel.setBounds(194,250,200,70);
+        chancesPanel.setBackground(settings.defaultAntiColor);
+        chancesPanel.setFocusable(false);
+        chancesPanel.add(chances);
+        chancesPanel.add(remValue);
+        
+        back.setBounds(194,350,200,70);
         back.setBackground(settings.defaultAntiColor);
         back.setForeground(settings.defaultColor);
         back.setFocusable(false);
@@ -59,7 +75,7 @@ public class settings extends JFrame implements ActionListener{
         
         this.add(title);
         this.add(darkTheme);
-        this.add(chances);
+        this.add(chancesPanel);
         this.add(coder);
         this.add(back);
 	}
@@ -85,6 +101,19 @@ public class settings extends JFrame implements ActionListener{
         	}
         	new settings();
         	this.dispose();
+        }
+        if(e.getSource()==chances)
+        {
+        	if(getChances==3)
+        		getChances=5;
+        	else if(getChances==5)
+        		getChances=10;
+        	else if(getChances==10)
+        		getChances=-1;
+        	else getChances=3;
+    		if(getChances==-1)
+    			remValue.setText("Infinite number");
+    		else remValue.setText(String.valueOf(getChances));
         }
 
     }
