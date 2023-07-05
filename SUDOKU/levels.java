@@ -15,6 +15,9 @@ public class levels extends JFrame implements ActionListener{
 	JLabel coder=new JLabel("BY ABDULLAH MAHMOUD");
 	JPanel levelsPanel=new JPanel();
 	JButton[] levels=new JButton[9];
+	static int level=0;
+	static board borde;
+	
 	levels(){
 		
 		this.setTitle("SUDOKU");
@@ -78,7 +81,8 @@ public class levels extends JFrame implements ActionListener{
 			{
 				if(e.getSource()==levels[i])
 				{
-					new board();
+					level=i;
+					borde=new board();
 					this.dispose();
 				}
 			}
