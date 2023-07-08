@@ -17,8 +17,10 @@ public class levels extends JFrame implements ActionListener{
 	JButton[] levels=new JButton[9];
 	static int level=0;
 	static board borde;
+	int station=0;
 	
-	levels(){
+	levels(int choose){
+		station=choose;
 		
 		this.setTitle("SUDOKU");
 		this.setLayout(null);
@@ -81,7 +83,7 @@ public class levels extends JFrame implements ActionListener{
 			{
 				if(e.getSource()==levels[i])
 				{
-					level=i;
+					level=i+9*station;
 					borde=new board();
 					this.dispose();
 				}

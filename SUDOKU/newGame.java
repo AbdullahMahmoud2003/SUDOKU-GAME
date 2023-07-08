@@ -16,6 +16,7 @@ public class newGame extends JFrame implements ActionListener{
 	JButton back=new JButton("BACK");
 	JLabel title=new JLabel("SUDOKU");
 	JLabel coder=new JLabel("BY ABDULLAH MAHMOUD");
+	static int choice;
 
 	newGame(){
 		this.setTitle("SUDOKU");
@@ -74,20 +75,23 @@ public class newGame extends JFrame implements ActionListener{
         if (e.getSource() == easy)
         {
         	levelType="Easy Levels";
-        	new levels();
+        	choice=0;
+        	new levels(0);
             this.dispose();
         }
 
         if(e.getSource() == medium)
         {
         	levelType="Med. Levels";
-        	new levels();
+        	choice=1;
+        	new levels(1);
             this.dispose();
         }
         if(e.getSource() == hard)
         {
         	levelType="Hard Levels";
-        	new levels();
+        	choice=2;
+        	new levels(2);
             this.dispose();
         }
         if(e.getSource()==back)

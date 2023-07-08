@@ -37,6 +37,12 @@ public class numberCatcher implements ActionListener{
 						board.buttons[row][col].setText(String.valueOf(j*3+i+1));
 						hasPressed=true;
 						board.buttons[row][col].setBackground(settings.defaultAntiColor);
+						if(check())
+						{
+							board.timer.stop();
+							levels.borde.dispose();
+							new end(1);
+						}
 					}else {
 						if(board.chances!=0)
 						{
@@ -45,7 +51,7 @@ public class numberCatcher implements ActionListener{
 							board.buttons[row][col].setBackground(Color.RED);
 						}else if(duplicate==1){
 							duplicate=0;
-							new newGame();
+							new end(0);
 							levels.borde.dispose();
 						}
 					}
@@ -53,5 +59,21 @@ public class numberCatcher implements ActionListener{
 			}
 		}
 
+	}
+	
+	public boolean check() {
+		boolean winner=true;
+		for(int j=0;j<9;j++)
+		{
+			for(int i=0;i<9;i++)
+			{
+				if(board.buttons[j][i].getText().equals(" "))
+				{
+					winner=false;
+					break;
+				}
+			}
+		}
+		return winner;
 	}
 }

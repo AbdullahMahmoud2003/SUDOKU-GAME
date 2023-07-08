@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 public class board extends JFrame implements ActionListener{
 	
@@ -15,13 +16,26 @@ public class board extends JFrame implements ActionListener{
 	JLabel coder=new JLabel("BY ABDULLAH MAHMOUD");
 	JLabel remChances=new JLabel("REMAINING CHANCES =");
 	static JLabel remValue=new JLabel();
+	static JLabel playerTimerLabel = new JLabel();
 	static JButton[][] buttons=new JButton[9][9];
 	static JButton[][] numbers=new JButton[3][3];
 	JPanel chancesPanel=new JPanel();
+	JPanel timePanel=new JPanel();
 	JButton back=new JButton("BACK");
+	static timer playerTimer=new timer();
+	
+    static  Timer timer = new Timer(1000, new ActionListener() {
+        public void actionPerformed(ActionEvent e) {
+            playerTimerLabel.setText("Time = "+playerTimer.minutes_string+":"+playerTimer.seconds_string);
+        }
+
+    });
 	
 	board()
 	{
+		playerTimer.reset();
+		playerTimer.start();
+		timer.start();
 		chances=settings.getChances;
 		if(chances==-1)
 			remValue.setText("Infinite number");
@@ -52,10 +66,21 @@ public class board extends JFrame implements ActionListener{
         remValue.setForeground(settings.defaultColor);
         remValue.setFont(new Font("",Font.BOLD,16));
         
+        chancesPanel.setBounds(1020,440,210,60);
+        chancesPanel.setBackground(settings.defaultAntiColor);
         chancesPanel.add(remChances);
         chancesPanel.add(remValue);
         
-        back.setBounds(1020,515,210,50);
+        playerTimerLabel.setFocusable(false);
+        playerTimerLabel.setBounds(1020, 515, 210, 20);
+        playerTimerLabel.setForeground(settings.defaultColor);
+        playerTimerLabel.setFont(new Font("", Font.BOLD, 17));
+        
+        timePanel.setBounds(1020,520,210,35);
+        timePanel.setBackground(settings.defaultAntiColor);
+        timePanel.add(playerTimerLabel);
+        
+        back.setBounds(1020,575,210,60);
         back.setBackground(settings.defaultAntiColor);
         back.setForeground(settings.defaultColor);
         back.setFocusable(false);
@@ -98,6 +123,7 @@ public class board extends JFrame implements ActionListener{
         this.add(title);
         this.add(coder);
         this.add(chancesPanel);
+        this.add(timePanel);
         this.add(back);
 		new buttonsCatcher();
 	}
@@ -107,7 +133,7 @@ public class board extends JFrame implements ActionListener{
 			
 			if(e.getSource()==back)
 			{
-				new levels();
+				new levels(newGame.choice);
 				this.dispose();
 			}
         }
