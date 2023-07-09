@@ -32,7 +32,7 @@ public class numberCatcher implements ActionListener{
 			{
 				if(e.getSource()==board.numbers[j][i]&&board.buttons[row][col].getBackground()==Color.DARK_GRAY)
 				{
-					if(j*3+i+1==matches.easySols[levels.level].charAt(row*9+col)-'0')
+					if(j*3+i+1==matches.solutions[levels.level].charAt(row*9+col)-'0')
 					{
 						board.buttons[row][col].setText(String.valueOf(j*3+i+1));
 						hasPressed=true;

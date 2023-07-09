@@ -96,7 +96,7 @@ public class board extends JFrame implements ActionListener{
         	{
         		if(i%3==0)
         			spaces+=3;
-        		this.add(buttons[j][i]=new JButton(matches.easyGames[levels.level].valueOf(matches.easyGames[levels.level].charAt(i+9*j))));
+        		this.add(buttons[j][i]=new JButton(matches.Games[levels.level].valueOf(matches.Games[levels.level].charAt(i+9*j))));
         		buttons[j][i].setBounds(175+i*70+spaces,posH,70,70);
                 buttons[j][i].setBackground(settings.defaultAntiColor);
                 buttons[j][i].setForeground(settings.defaultColor);
